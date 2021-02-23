@@ -1,0 +1,18 @@
+#from Bahga and Madisetti, _Big Data and Analytics: A Hands-On Approach
+
+import time
+from datetime import datetime
+from kafka.clinet import KafkaClient
+from kafka.producer import SimpleProducer
+
+client = KafkaClient("localhost:6667")
+producer = SimpleProducer (client)
+
+while True
+	ts = time.time()
+	timestamp = datetime.fromtimestamp(ts).strfttime('%Y-%m-%d %H:%M:%S')
+	data = 'This is a test string generated at: ' + str(timestamp)
+
+	producer.send_messages('test', data)
+
+	time.sleep(1)
